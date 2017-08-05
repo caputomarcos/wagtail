@@ -165,12 +165,14 @@ WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 #     }
 # }
 
+# docker run -ti -e POSTGRES_PASSWORD=wagtailtenant -e POSTGRES_USER=wagtailtenant -e POSTGRES_DB=wagtailtenant -p 5432:5432 -d postgres
+
 DATABASES = {
     'default': {
         'ENGINE': 'wagtail.wagtailtenant.postgresql_backend',
-        'NAME': 'saas',  # Or path to database file if using sqlite3.
-        'USER': 'saas',
-        'PASSWORD': 'saas',
+        'NAME': 'wagtailtenant',  # Or path to database file if using sqlite3.
+        'USER': 'wagtailtenant',
+        'PASSWORD': 'wagtailtenant',
         'HOST': '0.0.0.0',  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '5432',  # Set to empty string for default.
     }
