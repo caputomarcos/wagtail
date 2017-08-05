@@ -110,6 +110,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+
+TENANT_MODEL = "customers.Client" # app.Model
+
+
 MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -124,6 +128,7 @@ MIDDLEWARE = [
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
 ]
+
 
 # ROOT_URLCONF = '{{ project_name }}.urls'
 ROOT_URLCONF = '{{ project_name }}.urls_tenants'
@@ -159,6 +164,7 @@ WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+
 DATABASES = {
     'default': {
         'ENGINE': 'wagtail.wagtailtenant.postgresql_backend',
