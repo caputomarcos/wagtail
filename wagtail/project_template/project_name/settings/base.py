@@ -25,8 +25,65 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 # Application definition
 
+SHARED_APPS = (
+    'home',
+    'customers',
+    'search',
+
+    'wagtail.wagtailforms',
+    'wagtail.wagtailredirects',
+    'wagtail.wagtailembeds',
+    'wagtail.wagtailsites',
+    'wagtail.wagtailusers',
+    'wagtail.wagtailsnippets',
+    'wagtail.wagtaildocs',
+    'wagtail.wagtailimages',
+    'wagtail.wagtailsearch',
+    'wagtail.wagtailtenant',
+    'wagtail.wagtailadmin',
+    'wagtail.wagtailcore',
+
+    'modelcluster',
+    'taggit',
+
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+)
+
+TENANT_APPS = (
+    'home',
+    'search',
+
+    'wagtail.wagtailforms',
+    'wagtail.wagtailredirects',
+    'wagtail.wagtailembeds',
+    'wagtail.wagtailsites',
+    'wagtail.wagtailusers',
+    'wagtail.wagtailsnippets',
+    'wagtail.wagtaildocs',
+    'wagtail.wagtailimages',
+    'wagtail.wagtailsearch',
+    'wagtail.wagtailadmin',
+    'wagtail.wagtailcore',
+
+    'modelcluster',
+    'taggit',
+
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+)
+
 INSTALLED_APPS = [
     'home',
+    'customers',
     'search',
 
     'wagtail.wagtailforms',
@@ -63,11 +120,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
 
+    'wagtail.wagtailtenant.middleware.TenantMiddleware',
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
 ]
 
-ROOT_URLCONF = '{{ project_name }}.urls'
+# ROOT_URLCONF = '{{ project_name }}.urls'
+ROOT_URLCONF = '{{ project_name }}.urls_tenants'
+PUBLIC_SCHEMA_URLCONF = '{{ project_name }}.urls_public'
 
 TEMPLATES = [
     {
@@ -93,12 +153,28 @@ WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'wagtail.wagtailtenant.postgresql_backend',
+        'NAME': 'saas',  # Or path to database file if using sqlite3.
+        'USER': 'saas',
+        'PASSWORD': 'saas',
+        'HOST': '0.0.0.0',  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '5432',  # Set to empty string for default.
     }
 }
+
+DATABASE_ROUTERS = (
+    'wagtail.wagtailtenant.routers.TenantSyncRouter',
+)
+
+DEFAULT_FILE_STORAGE = 'wagtail.wagtailtenant.storage.TenantFileSystemStorage'
 
 
 # Internationalization
@@ -141,3 +217,5 @@ WAGTAIL_SITE_NAME = "{{ project_name }}"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+ALLOWED_HOSTS = ['*']
