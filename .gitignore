@@ -21,3 +21,4 @@ npm-debug.log*
 *.iws
 coverage/
 client/node_modules
+env/
