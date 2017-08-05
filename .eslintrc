@@ -1,0 +1,15 @@
+{
+  "extends": "wagtail",
+
+  "env": {
+    "jest": true
+  },
+
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "client/webpack/prod.config.js"
+      }
+    }
+  }
+}
