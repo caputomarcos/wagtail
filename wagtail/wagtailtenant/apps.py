@@ -36,18 +36,18 @@ def best_practice(app_configs, **kwargs):
     if not hasattr(settings, 'SHARED_APPS'):
         return [Critical('SHARED_APPS setting not set')]
 
-    if 'wagtailtenant.routers.TenantSyncRouter' not in settings.DATABASE_ROUTERS:
+    if 'wagtail.wagtailtenant.routers.TenantSyncRouter' not in settings.DATABASE_ROUTERS:
         return [
             Critical("DATABASE_ROUTERS setting must contain "
-                     "'wagtailtenant.routers.TenantSyncRouter'.")
+                     "'wagtail.wagtailtenant.routers.TenantSyncRouter'.")
         ]
 
     errors = []
 
     django_index = next(i for i, s in enumerate(INSTALLED_APPS) if s.startswith('django.'))
-    if INSTALLED_APPS.index('wagtailtenant') > django_index:
+    if INSTALLED_APPS.index('wagtail.wagtailtenant') > django_index:
         errors.append(
-            Warning("You should put 'wagtailtenant' before any django "
+            Warning("You should put 'wagtail.wagtailtenant' before any django "
                     "core applications in INSTALLED_APPS.",
                     obj="django.conf.settings",
                     hint="This is necessary to overwrite built-in django "
@@ -98,7 +98,7 @@ def best_practice(app_configs, **kwargs):
         errors.append(Warning(
             "Your default storage engine is not tenant aware.",
             hint="Set settings.DEFAULT_FILE_STORAGE to "
-                 "'wagtailtenant.storage.TenantFileSystemStorage'",
+                 "'wagtail.wagtailtenant.storage.TenantFileSystemStorage'",
             id="wagtailtenant.W003"
         ))
 
