@@ -30,6 +30,9 @@ SHARED_APPS = (
     'customers',
     'search',
 
+    'wagtail.contrib.modeladmin',
+    'wagtail.wagtailexperiments',
+
     'wagtail.wagtailforms',
     'wagtail.wagtailredirects',
     'wagtail.wagtailembeds',
@@ -58,6 +61,9 @@ TENANT_APPS = (
     'home',
     'search',
 
+    'wagtail.contrib.modeladmin',
+    'wagtail.wagtailexperiments',
+
     'wagtail.wagtailforms',
     'wagtail.wagtailredirects',
     'wagtail.wagtailembeds',
@@ -85,6 +91,9 @@ INSTALLED_APPS = [
     'home',
     'customers',
     'search',
+
+    'wagtail.contrib.modeladmin',
+    'wagtail.wagtailexperiments',
 
     'wagtail.wagtailforms',
     'wagtail.wagtailredirects',
