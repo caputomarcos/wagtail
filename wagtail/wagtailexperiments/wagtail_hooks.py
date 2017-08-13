@@ -17,7 +17,7 @@ from .utils import get_user_id, impersonate_other_page
 @hooks.register('register_admin_urls')
 def register_admin_urls():
     return [
-        url(r'^wagtailexperiments/', include(admin_urls, app_name='wagtailexperiments', namespace='wagtailexperiments')),
+        url(r'^experiments/', include(admin_urls, app_name='wagtailexperiments', namespace='wagtailexperiments')),
     ]
 
 

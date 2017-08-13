@@ -47,7 +47,7 @@ def experiment_report(request, experiment_id):
                 report_by_variation[variation] = variation_report
                 break
 
-    return render(request, 'wagtailexperiments/report.html', {
+    return render(request, 'experiments/report.html', {
         'experiment': experiment,
         'report_by_variation': report_by_variation,
         'winning_variation': experiment.winning_variation if experiment.status == 'completed' else None,

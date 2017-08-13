@@ -19,7 +19,7 @@ BACKEND = None
 def get_backend():
     global BACKEND
     if BACKEND is None:
-        backend_name = getattr(settings, 'WAGTAIL_wagtailexperiments_BACKEND', 'wagtailexperiments.backends.db')
+        backend_name = getattr(settings, 'WAGTAIL_EXPERIMENTS_BACKEND', 'wagtail.wagtailexperiments.backends.db')
         BACKEND = import_module(backend_name)
 
     return BACKEND

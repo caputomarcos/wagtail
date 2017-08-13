@@ -4,7 +4,7 @@ import datetime
 
 from django.db.models import F, Sum
 
-from wagtailexperiments.models import ExperimentHistory
+from wagtail.wagtailexperiments.models import ExperimentHistory
 
 
 def record_participant(experiment, user_id, variation, request):

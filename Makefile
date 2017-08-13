@@ -14,6 +14,7 @@ clean-pyc:
 develop: clean-pyc
 	pip install -e .[testing,docs]
 	npm install && npm run build
+	wagtail start app
 
 lint:
 	flake8 wagtail
