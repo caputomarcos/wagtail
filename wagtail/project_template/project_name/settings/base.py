@@ -140,6 +140,8 @@ MIDDLEWARE = [
     'wagtail.wagtailtenant.middleware.TenantMiddleware',
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
+
+
 ]
 
 
@@ -168,16 +170,6 @@ TEMPLATES = [
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 # docker run -ti -e POSTGRES_PASSWORD=wagtailtenant -e POSTGRES_USER=wagtailtenant -e POSTGRES_DB=wagtailtenant -p 5432:5432 -d postgres
 
 DATABASES = {
@@ -201,9 +193,9 @@ DEFAULT_FILE_STORAGE = 'wagtail.wagtailtenant.storage.TenantFileSystemStorage'
 # Internationalization
 # https://docs.djangoproject.com/en/{{ docs_version }}/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
@@ -241,5 +233,8 @@ BASE_URL = 'http://example.com'
 
 ALLOWED_HOSTS = ['*']
 
-GA_KEY_FILEPATH = os.path.join(PROJECT_DIR, '{{ project_name }}.json')
-GA_VIEW_ID = 'ga:xxx'
+# GA_KEY_FILEPATH = os.path.join(PROJECT_DIR, '{{ project_name }}.json')
+# GA_VIEW_ID = 'ga:xxx'
+
+
+

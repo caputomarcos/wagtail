@@ -67,16 +67,16 @@ documentation_extras = [
 ]
 
 setup(
-    name='wagtail',
+    name='wagtailsaas',
     version=__version__,
     description='A Django content management system focused on flexibility and user experience',
-    author='Matthew Westcott',
-    author_email='matthew.westcott@torchbox.com',
-    url='http://wagtail.io/',
+    author='Marcos Caputo',
+    author_email='caputo.marcos@gmail.com',
+    url='http://mobb.io/',
     packages=find_packages(),
     include_package_data=True,
     license='BSD',
-    long_description=open('README.rst').read(),
+    long_description=open('README.md').read(),
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
