@@ -64,7 +64,7 @@ TENANT_APPS = (
     'wagtail.contrib.modeladmin',
     'wagtail.wagtailexperiments',
     'wagtail.wagtailfontawesome',
-    'wagtail.wagtailalytics',
+    # 'wagtail.wagtailalytics',
 
     'wagtail.wagtailforms',
     'wagtail.wagtailredirects',
@@ -97,7 +97,7 @@ INSTALLED_APPS = [
     'wagtail.contrib.modeladmin',
     'wagtail.wagtailexperiments',
     'wagtail.wagtailfontawesome',
-    'wagtail.wagtailalytics',
+    # 'wagtail.wagtailalytics',
 
     'wagtail.wagtailforms',
     'wagtail.wagtailredirects',
@@ -241,5 +241,5 @@ BASE_URL = 'http://example.com'
 
 ALLOWED_HOSTS = ['*']
 
-GA_KEY_FILEPATH = os.path.join(PROJECT_DIR, 'My Project-2e7fdcce87fe.json')
-GA_VIEW_ID = 'ga:2e7fdcce87fe1f52d2987086123f216cede940b4'
+GA_KEY_FILEPATH = os.path.join(PROJECT_DIR, '{{ project_name }}.json')
+GA_VIEW_ID = 'ga:xxx'
