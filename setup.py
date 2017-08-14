@@ -21,6 +21,7 @@ except ImportError:
 
 
 install_requires = [
+    "google-api-python-client==1.6.2",
     "Django>=1.8.1,<1.12",
     "django-modelcluster>=3.1,<4.0",
     "django-taggit>=0.20,<1.0",
@@ -34,7 +35,6 @@ install_requires = [
     "requests>=2.11.1,<3.0",
     "psycopg2>=2.7.3",
     "oauth2client>=4.1.2",
-    "google-api-python-client>=1.6.2"
 ]
 
 # Testing dependencies
