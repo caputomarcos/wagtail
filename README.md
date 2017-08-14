@@ -24,8 +24,8 @@ git clone
     python manage.py migrate_schemas
     
 
-Create tenants 
---------------
+tenants 
+-------
 
     $ python manage.py shell << EOF
     from customers.models import Client    
