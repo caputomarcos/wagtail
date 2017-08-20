@@ -95,6 +95,8 @@ INSTALLED_APPS = [
     'search',
 
     'wagtail.contrib.modeladmin',
+    'wagtail.contrib.wagtailstyleguide',
+
     'wagtail.wagtailexperiments',
     'wagtail.wagtailfontawesome',
     # 'wagtail.wagtailalytics',

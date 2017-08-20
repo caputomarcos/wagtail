@@ -124,6 +124,7 @@ def edit(request, image_id):
         form = ImageForm(instance=image, user=request.user)
 
     # Check if we should enable the frontend url generator
+    # :) foo
     try:
         reverse('wagtailimages_serve', args=('foo', '1', 'bar'))
         url_generator_enabled = True

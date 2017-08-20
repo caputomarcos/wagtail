@@ -200,7 +200,7 @@ body.ready .sequence-controls {
 }
 
 .sequence-controls h3 label {
-  color: #43b1b0;
+  color: #B40F21;
   font-weight: normal;
   text-transform: uppercase;
   float: none;
@@ -361,7 +361,7 @@ body.ready .stream-menu ul {
   display: block;
   width: 100%;
   padding: 0 0 0.5em;
-  outline: #43b1b0;
+  outline: #B40F21;
   overflow: visible;
 }
 
@@ -390,7 +390,7 @@ body.ready .stream-menu button {
 }
 
 .stream-menu button:hover, .stream-menu button:focus {
-  background-color: #43b1b0;
+  background-color: #B40F21;
   color: #fff;
 }
 
@@ -415,15 +415,15 @@ body.ready .stream-menu button {
 }
 
 .stream-menu.stream-menu-closed .toggle:focus {
-  color: #43b1b0;
+  color: #B40F21;
 }
 
 .stream-menu.stream-menu-closed:hover {
-  border-top-color: #43b1b0;
+  border-top-color: #B40F21;
 }
 
 .stream-menu.stream-menu-closed:hover .toggle {
-  color: #43b1b0;
+  color: #B40F21;
 }
 
 @media screen and (min-width: 50em) {
