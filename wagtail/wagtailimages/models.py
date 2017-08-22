@@ -11,6 +11,7 @@ from django.core import checks
 from django.core.files import File
 from django.core.urlresolvers import reverse
 from django.db import models
+from django.db import connection
 from django.forms.utils import flatatt
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.functional import cached_property
@@ -446,7 +447,11 @@ class AbstractRendition(models.Model):
 
     @property
     def url(self):
-        return self.file.url
+        url = '/media/{0}/{1}'.format(
+            connection.tenant.domain_url,
+            self.file
+        )
+        return url
 
     @property
     def alt(self):

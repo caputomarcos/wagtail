@@ -1,9 +1,10 @@
 from django.contrib.auth.models import User
 from django.db.utils import DatabaseError
 from django.views.generic import FormView
-from .forms import GenerateUsersForm
-from .models import Client
 from random import choice
+
+from wagtail.wagtailcustomers.forms import GenerateUsersForm
+from wagtail.wagtailcustomers.models import Customer
 
 
 class TenantView(FormView):
@@ -13,7 +14,7 @@ class TenantView(FormView):
 
     def get_context_data(self, **kwargs):
         context = super(TenantView, self).get_context_data(**kwargs)
-        context['tenants_list'] = Client.objects.all()
+        context['tenants_list'] = Customer.objects.all()
         context['users'] = User.objects.all()
         return context
 

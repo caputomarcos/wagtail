@@ -39,7 +39,8 @@ def tenant_context(tenant):
 
 
 def get_tenant_model():
-    return get_model(*settings.TENANT_MODEL.split("."))
+    # TODO - need improve
+    return get_model(*settings.TENANT_MODEL.replace('wagtail.','').split("."))
 
 
 def get_public_schema_name():

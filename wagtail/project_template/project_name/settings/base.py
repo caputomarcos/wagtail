@@ -27,11 +27,17 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 SHARED_APPS = (
     'home',
-    'customers',
     'search',
 
     'wagtail.contrib.modeladmin',
+    'wagtail.contrib.wagtailapi',
+    'wagtail.contrib.settings',
+
+    'rest_framework',
+
     'wagtail.wagtailexperiments',
+    'wagtail.wagtailfontawesome',
+    # 'wagtail.wagtailalytics',
 
     'wagtail.wagtailforms',
     'wagtail.wagtailredirects',
@@ -43,6 +49,7 @@ SHARED_APPS = (
     'wagtail.wagtailimages',
     'wagtail.wagtailsearch',
     'wagtail.wagtailtenant',
+    'wagtail.wagtailcustomers',
     'wagtail.wagtailadmin',
     'wagtail.wagtailcore',
 
@@ -62,6 +69,11 @@ TENANT_APPS = (
     'search',
 
     'wagtail.contrib.modeladmin',
+    'wagtail.contrib.wagtailapi',
+    'wagtail.contrib.settings',
+
+    'rest_framework',
+
     'wagtail.wagtailexperiments',
     'wagtail.wagtailfontawesome',
     # 'wagtail.wagtailalytics',
@@ -91,11 +103,13 @@ TENANT_APPS = (
 
 INSTALLED_APPS = [
     'home',
-    'customers',
     'search',
 
     'wagtail.contrib.modeladmin',
-    'wagtail.contrib.wagtailstyleguide',
+    'wagtail.contrib.wagtailapi',
+    'wagtail.contrib.settings',
+
+    'rest_framework',
 
     'wagtail.wagtailexperiments',
     'wagtail.wagtailfontawesome',
@@ -111,6 +125,7 @@ INSTALLED_APPS = [
     'wagtail.wagtailimages',
     'wagtail.wagtailsearch',
     'wagtail.wagtailtenant',
+    'wagtail.wagtailcustomers',
     'wagtail.wagtailadmin',
     'wagtail.wagtailcore',
 
@@ -126,7 +141,7 @@ INSTALLED_APPS = [
 ]
 
 
-TENANT_MODEL = "customers.Client" # app.Model
+TENANT_MODEL = "wagtail.wagtailcustomers.Customer"
 
 
 MIDDLEWARE = [
@@ -142,7 +157,6 @@ MIDDLEWARE = [
     'wagtail.wagtailtenant.middleware.TenantMiddleware',
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
-
 
 ]
 
@@ -238,5 +252,32 @@ ALLOWED_HOSTS = ['*']
 # GA_KEY_FILEPATH = os.path.join(PROJECT_DIR, '{{ project_name }}.json')
 # GA_VIEW_ID = 'ga:xxx'
 
-
-
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'request': {
+            'format': '%(asctime)s [%(levelname)s] [%(schema_name)s / %(domain_url)s] %(name)s: %(message)s',
+        },
+    },
+    'filters': {
+        'request': {
+            '()': 'wagtail.wagtailtenant.log.TenantContextFilter'
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'filters': ['request'],
+            'formatter': 'request',
+        }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+    },
+}
