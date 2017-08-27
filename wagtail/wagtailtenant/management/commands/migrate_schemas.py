@@ -40,6 +40,7 @@ class Command(SyncCommon):
 
         if self.sync_public:
             executor.run_migrations(tenants=[self.schema_name])
+
         if self.sync_tenant:
             if self.schema_name and self.schema_name != self.PUBLIC_SCHEMA_NAME:
                 if not schema_exists(self.schema_name):
@@ -50,4 +51,16 @@ class Command(SyncCommon):
             else:
                 tenants = get_tenant_model().objects.exclude(schema_name=get_public_schema_name()).values_list(
                     'schema_name', flat=True)
+
             executor.run_migrations(tenants=tenants)
+
+            from wagtail.wagtailcustomers.models import Customer as customer
+            if not customer.objects.filter(schema_name=get_public_schema_name()).exists():
+                customer(domain_url='tuiuiu.io',
+                         schema_name=get_public_schema_name(),
+                         name='tuiuiu.io',
+                         description='tuiuiu.io').save()
+
+            from django.contrib.auth.models import User as user
+            if not user.objects.filter(username='admin').exists():
+                user.objects.create_superuser('admin', 'admin@tuiuiu.io', 'admin')
