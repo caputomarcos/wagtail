@@ -1343,9 +1343,9 @@ textarea:focus,
 select:focus,
 .richtext:focus,
 .tagit:focus {
-  border-color: #bd1022;
+  border-color: #f6e0c5;
   outline: none;
-  background-color: #f4fcfc;
+  background-color: #F8F1E4;
 }
 
 input:disabled, input[disabled], input:disabled:hover, input[disabled]:hover,
@@ -2409,7 +2409,7 @@ li.inline:first-child {
 
 .drop-zone.hovered {
   border-color: #9c0e1c;
-  background-color: #f4fcfc;
+  background-color: #F8F1E4;
 }
 
 body.ready fieldset, body.ready
@@ -3820,7 +3820,7 @@ body.ready .progress .bar {
 .xdsoft_datetimepicker {
   box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.4);
   background: #fff;
-  border: 1px solid #bd1022;
+  border: 1px solid #f6e0c5;
   padding: 8px;
   padding-left: 0;
   padding-top: 2px;

@@ -27,8 +27,8 @@ li.sequence-member:after {
 }
 
 li.sequence-member:hover {
-  background-color: #f4fcfc;
-  border-color: #ccf1f1;
+  background-color: #f8f1e4;
+  border-color: #f6e0c5;
 }
 
 li.sequence-member:hover .sequence-member-inner > .struct-block > label,
@@ -173,7 +173,7 @@ li.sequence-member .fields > li {
 
 .sequence-controls {
   border-radius: 2px 0 0;
-  border: 1px solid #ccf1f1;
+  border: 1px solid #F6E0C5;
   border-width: 1px 1px 0;
   opacity: 0;
   visibility: hidden;
@@ -182,7 +182,7 @@ li.sequence-member .fields > li {
   right: 0;
   z-index: 1;
   overflow: visible;
-  background-color: #f4fcfc;
+  background-color: #f8f1e4;
   padding: 0 0 0 1em;
   height: 30px;
 }
